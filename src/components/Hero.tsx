@@ -33,16 +33,15 @@ export default function Hero() {
       <ParticleBg />
       <div className="relative z-10 flex flex-col items-center text-center px-3 md:px-0 animate-fade-in">
         <img src="/logo-nakola.svg" aria-hidden className="w-24 h-24 mb-4 drop-shadow-lg" />
-        <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 leading-tight drop-shadow-xl animate-scale-in"
+        <h1 className="text-3xl md:text-5xl font-extrabold text-black mb-4 leading-tight drop-shadow-xl animate-scale-in"
             style={{ letterSpacing: "0.01em" }}>
-          Leading Innovator in<br className="hidden md:block" />
-          <span className="text-[color:#FFD700]">African Tech</span>
+          Africa’s Future, <span className="text-[color:#FFD700]">Powered by AI</span>
         </h1>
         <p className="text-lg md:text-2xl text-blue-900 max-w-2xl mb-7 font-medium">
-          Delivering intelligent, scalable software & AI solutions rooted in Africa’s unique tech landscape.
+          Unlocking intelligent, scalable software and automation for the continent's boldest businesses.
         </p>
-        <a href="#about" className="inline-flex items-center group font-semibold bg-[color:#0056b3] hover:bg-[color:#FFD700] text-white hover:text-blue-900 px-7 py-3 rounded-xl text-lg shadow-card transition-colors duration-200 hover:scale-105 focus:outline-blue-800 animate-slide-up">
-          Discover Our Journey
+        <a href="#why-choose-us" className="inline-flex items-center group font-semibold bg-[color:#0056b3] hover:bg-[color:#FFD700] text-white hover:text-blue-900 px-7 py-3 rounded-xl text-lg shadow-card transition-colors duration-200 hover:scale-105 focus:outline-blue-800 animate-slide-up">
+          Why Choose Us?
           <span className="ml-3 animate-bounce">
             <svg viewBox="0 0 18 18" width="24" height="24" fill="none" aria-hidden>
               <path d="M9 2v14M9 16l5-5m-5 5l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -62,3 +61,4 @@ export default function Hero() {
     </section>
   );
 }
+
