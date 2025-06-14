@@ -1,8 +1,24 @@
+
 # Welcome to your Lovable project
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/39dcc3f3-0c99-442d-9328-8d1e8ef1f9fa
+
+## Homepage Structure
+
+Your Home page includes the following sections (in order):
+
+- **Hero section**
+- **Statistics**
+- **Why Choose Us**
+- **Pricing Cards**
+- **Services**
+- **Portfolio**
+- **Contact Form**
+- **Footer**
+
+> The "About Nakola" and "Our Journey" sections have been removed, as requested.
 
 ## How can I edit this code?
 
@@ -71,3 +87,4 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
