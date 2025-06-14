@@ -1,23 +1,30 @@
 
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "About", href: "/about-us" },
-  { label: "Services", href: "/services" }, // changed from "#services" to "/services"
+  { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <nav
@@ -34,30 +41,62 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-8 items-center">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              {link.href.startsWith("/") ? (
-                <Link
-                  to={link.href}
-                  className={`font-semibold px-2 py-1 transition-colors duration-150 ${
-                    location.pathname === link.href
-                      ? "text-[color:#FFD700] underline"
-                      : "text-black hover:text-[color:#FFD700]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  href={link.href}
-                  className="font-semibold text-black hover:text-[color:#FFD700] px-2 py-1 transition-colors duration-150"
-                >
-                  {link.label}
-                </a>
-              )}
+              <Link
+                to={link.href}
+                className={`font-semibold px-2 py-1 transition-colors duration-150 ${
+                  location.pathname === link.href
+                    ? "text-[color:#FFD700] underline"
+                    : "text-black hover:text-[color:#FFD700]"
+                }`}
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
-        {/* Mobile menu coming soon */}
+        {/* MOBILE MENU BUTTON */}
+        <button
+          className="md:hidden p-2 text-blue-900 hover:text-[color:#FFD700] transition-colors"
+          aria-label="Open menu"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <Menu size={28} />
+        </button>
       </div>
+      {/* MOBILE MENU DRAWER */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden" onClick={() => setMenuOpen(false)}>
+          <nav
+            className="absolute right-0 top-20 w-3/4 max-w-xs bg-white shadow-xl rounded-l-2xl h-[90vh] p-8 flex flex-col gap-5 animate-slide-in-right"
+            onClick={e => e.stopPropagation()}
+          >
+            <ul className="flex flex-col space-y-5">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className={`block font-semibold text-lg py-2 px-4 rounded hover:bg-blue-50 transition-colors duration-150 ${
+                      location.pathname === link.href
+                        ? "text-[color:#FFD700] underline"
+                        : "text-blue-900 hover:text-[color:#FFD700]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  to="/"
+                  className="block mt-6 font-bold text-center text-blue-900 hover:text-[color:#FFD700]"
+                >
+                  Home
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      )}
     </nav>
   );
 }
