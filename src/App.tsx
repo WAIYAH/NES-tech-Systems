@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +12,7 @@ import CookiesPolicy from "./pages/CookiesPolicy";
 import Accessibility from "./pages/Accessibility";
 import AboutUs from "./pages/AboutUs";
 import Portfolio from "./pages/Portfolio";
+import Services from "./pages/Services"; // <-- FIX: use static import
 
 const queryClient = new QueryClient();
 
@@ -23,7 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<(await import("./pages/Services")).default />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -38,3 +40,4 @@ const App = () => (
 );
 
 export default App;
+
