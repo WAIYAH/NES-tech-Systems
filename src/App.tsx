@@ -23,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/services" element={<(await import("./pages/Services")).default />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
