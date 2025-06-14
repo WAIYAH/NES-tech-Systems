@@ -1,9 +1,10 @@
+
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Statistics from "../components/Statistics";
 import WhyChooseUs from "../components/WhyChooseUs";
 import PricingCards from "../components/PricingCards";
-import About from "../components/About";
+// import About from "../components/About"; // Removed
 import Services from "../components/Services";
 import Portfolio from "../components/Portfolio";
 import ContactForm from "../components/ContactForm";
@@ -18,7 +19,7 @@ const Index = () => {
         <Statistics />
         <WhyChooseUs />
         <PricingCards />
-        <About />
+        {/* <About /> Removed */}
         <Services />
         <Portfolio />
         <ContactForm />
